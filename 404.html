@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada — Luxo Hair Beauty</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0c0b0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;1,6..96,400..500&family=Jost:wght@300;400;500&display=swap">
+  <!-- Estilos embutidos: esta página pode ser servida a partir de qualquer caminho. -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; min-height: 100svh;
+      display: grid; align-content: center; justify-items: start; gap: 26px;
+      padding: clamp(20px, 5vw, 76px);
+      background: #0c0b0a; color: #efe8dc;
+      font: 300 1.05rem/1.7 "Jost", "Century Gothic", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .eyebrow { margin: 0; font-size: .72rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: #c9a96a; }
+    h1 { margin: 0; font: 400 clamp(3rem, 12vw, 9rem)/.96 "Bodoni Moda", Didot, Georgia, serif; letter-spacing: -.04em; }
+    h1 em { color: #c9a96a; }
+    p { margin: 0; max-width: 36ch; color: #a89f90; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+    a {
+      display: inline-flex; align-items: center; min-height: 58px; padding: 0 30px;
+      font-size: .76rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none;
+      background: #c9a96a; color: #0c0b0a; transition: background-color .4s;
+    }
+    a:hover { background: #f2ece1; }
+    a.line { background: none; color: #efe8dc; box-shadow: inset 0 0 0 1px rgba(239, 232, 220, .5); }
+    a.line:hover { background: #c9a96a; color: #0c0b0a; }
+    a:focus-visible { outline: 2px solid #c9a96a; outline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <p class="eyebrow">Erro 404 · Luxo Hair Beauty</p>
+  <h1>Esta página <em>não existe</em>.</h1>
+  <p>O endereço pode ter mudado. Volte para o início ou fale direto com o salão.</p>
+  <div class="actions">
+    <a href="/" data-home>Voltar ao início</a>
+    <a class="line" target="_blank" rel="noopener"
+       href="https://wa.me/5567984836484?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Luxo%20Hair%20Beauty.">Chamar no WhatsApp</a>
+  </div>
+  <script>
+    // No GitHub Pages o site fica em /nome-do-repositorio/ e não na raiz do domínio.
+    if (location.hostname.endsWith('.github.io')) {
+      document.querySelector('[data-home]').href = '/' + location.pathname.split('/')[1] + '/';
+    }
+  </script>
+</body>
+</html>

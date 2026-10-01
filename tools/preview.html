@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Prévia por tamanho de tela — Luxo Hair Beauty</title>
+  <style>
+    body { margin: 0; padding: 10px; background: #2a2622; display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
+    iframe { border: 0; background: #0c0b0a; flex: none; }
+  </style>
+</head>
+<body>
+  <!--
+    Ferramenta de QA (não faz parte do site). Mostra a página inteira em quadros
+    lado a lado, cada um do tamanho de tela pedido, rolado até um trecho diferente.
+
+    http://localhost:4173/tools/preview.html?w=390&h=844
+    http://localhost:4173/tools/preview.html?w=1440&h=900
+
+    Parâmetros opcionais: page=404.html · from=3&to=5 (só alguns quadros)
+  -->
+  <script>
+    const q = new URLSearchParams(location.search);
+    const w = Number(q.get('w')) || 1440;
+    const h = Number(q.get('h')) || 900;
+    const page = '../' + (q.get('page') || 'index.html');
+    const from = Number(q.get('from')) || 0;
+
+    const settle = (win) => {
+      const doc = win.document;
+      // mostra tudo que entraria ao rolar e carrega todas as fotos
+      doc.querySelectorAll('[data-reveal], [data-split]').forEach((el) => el.classList.add('is-in'));
+      doc.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
+      doc.documentElement.style.scrollBehavior = 'auto';
+    };
+
+    const frame = (index, onload) => {
+      const f = document.createElement('iframe');
+      f.width = w; f.height = h; f.src = page; f.title = `Trecho ${index + 1}`;
+      f.addEventListener('load', () => {
+        settle(f.contentWindow);
+        f.contentWindow.scrollTo(0, index * h);
+        if (onload) onload(f.contentWindow);
+      });
+      document.body.append(f);
+    };
+
+    frame(from, (win) => {
+      const total = Math.ceil(win.document.documentElement.scrollHeight / h);
+      const to = Math.min(total - 1, q.has('to') ? Number(q.get('to')) : total - 1);
+      for (let i = from + 1; i <= to; i++) frame(i);
+      document.title = `${w}×${h} · ${total} telas`;
+    });
+  </script>
+</body>
+</html>

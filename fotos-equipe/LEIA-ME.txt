@@ -1,0 +1,19 @@
+Fotos dos profissionais
+
+Salve aqui uma foto de cada um, com exatamente estes nomes:
+
+  ryan.jpg
+  liany.jpg
+  glaucia.jpg
+  marli.jpg
+
+(.jpg, .png ou .webp)
+
+Recomendado: retrato vertical, rosto no terço superior da imagem,
+fundo neutro ou o próprio salão, pelo menos 1200 px de largura.
+
+Depois rode, na pasta do site:
+
+  python tools/build_images.py
+
+A foto passa a aparecer no cartão e no perfil automaticamente.
